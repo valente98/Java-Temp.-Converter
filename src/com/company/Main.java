@@ -3,17 +3,16 @@ import java.util.Scanner;
 
 
 public class Main {
+//    public static void p(Object a) { System.out.println(a);}
 
     public static void main(String[] args) {
+        System.out.println("Welcome to Temperature Converter.");
         Scanner using = new Scanner(System.in);
-        System.out.println("Choose the source using. [f]Fahrenheit, [c]Celsius, or [k]Kelvin");
-        Scanner convert = new Scanner(System.in);
-        String source = using.nextLine();
-        System.out.println("Choose the source trying to convert into. [f]Fahrenheit, [c]Celsius, or [k]Kelvin");
-        Scanner amount = new Scanner(System.in);
-        String converter = convert.nextLine();
-        System.out.println("What is the temperature number your are converting");
-        Integer temperature = amount.nextInt();
+        String x = using.next();
+        double temperature = Double.valueOf(x.substring(0, x.length() - 1));
+        Character source = x.charAt(x.length() - 1);
+        using.next();
+        String converter = using.next();
         TemperatureConverter tempconverter = new TemperatureConverter(source, converter);
         if (converter.equals("f")) {
             System.out.println(tempconverter.conversion(temperature) + " degrees Fahrenheit");
